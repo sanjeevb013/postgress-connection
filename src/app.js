@@ -1,5 +1,6 @@
 const express = require("express");
 const userRoutes = require("./routes/users");
+const healthArticleRoutes = require("./routes/healthArticles");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
@@ -14,6 +15,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+// serve uploaded files statically
+app.use('/uploads', express.static('uploads'));
+
+app.use('/api/health-articles', healthArticleRoutes);
 
 // Error handling middleware (must be last)
 app.use(errorHandler);

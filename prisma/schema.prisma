@@ -31,3 +31,14 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+// HealthArticle model for uploaded articles
+model HealthArticle {
+  id        Int      @id @default(autoincrement())
+  title     String
+  summary   String
+  content   String
+  fileUrl   String?  // path/URL to uploaded file
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
